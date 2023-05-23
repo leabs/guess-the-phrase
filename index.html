@@ -31,6 +31,13 @@
         font-size: 24px;
         font-weight: bold;
       }
+      #share {
+        display: none;
+      }
+      .text-center{
+        display: flex;
+        justify-content: center;
+      }
     </style>
   </head>
   <body>
@@ -47,6 +54,8 @@
       Solve
     </button>
     <p id="result"></p>
+    <div class="text-center"> <button type="button" id="share" onclick="share()">Copy Score</button></div>
+   
 
     <script>
       // Get the input field
@@ -127,6 +136,8 @@
             spread: 90,
             origin: { y: 0.2 },
           });
+          //Show Share Button
+          document.getElementById("share").style.display = "block";
           document.getElementById("result").innerHTML =
             "Congratulations, you guessed the saying using " +
             guessedLetters.length +
@@ -143,6 +154,8 @@
             spread: 90,
             origin: { y: 0.2 },
           });
+          //Show Share Button
+          document.getElementById("share").style.display = "block";
           document.getElementById("result").innerHTML =
             "Congratulations, you guessed the saying using " +
             guessedLetters.length +
@@ -153,6 +166,12 @@
           document.getElementById("result").innerHTML =
             "Sorry, that is not the saying.";
         }
+      }
+      function share() {
+        //Set guessedLetters.length to a string "You guessed in " + guessedLetters.length + " guesses!
+        var score = "You guessed in " + guessedLetters.length + " guesses!";
+        //Copy to clipboard
+        navigator.clipboard.writeText(score);
       }
     </script>
   </body>
