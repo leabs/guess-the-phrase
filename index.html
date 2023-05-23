@@ -9,8 +9,21 @@
       user-scalable="no"
     />
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
     <title>Guess the Phrase</title>
     <style>
+      html {
+        background-image: linear-gradient(
+          109.6deg,
+          rgba(48, 207, 208, 1) 11.2%,
+          #485fc7 92.5%
+        );
+        background-size: 100%;
+        min-height: 100vh;
+      }
       body {
         font-family: Arial, sans-serif;
         text-align: center;
@@ -18,12 +31,13 @@
 
       h1 {
         margin-top: 50px;
+        background: -webkit-linear-gradient(45deg,  #7286df, #09254f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-
-      #guess {
-        margin-top: 20px;
-        max-width: 26px;
-        font-size: 2rem;
+      #guess,
+      #solve {
+        text-align: center;
       }
 
       #result {
@@ -38,24 +52,76 @@
         display: flex;
         justify-content: center;
       }
+      body {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      button {
+        margin-top: 1rem;
+      }
+      h1 {
+        margin-top: 2rem;
+      }
+      .container {
+        margin-top: 2rem;
+        background: #f5f5f5;
+        box-shadow: 2px 3px 10px 10px rgba(0, 0, 0, 0.05);
+        padding: 1rem;
+        border-radius: 10px;;
+      }
+      small{
+        font-size:24px;
+      }
+      @media(max-width: 500px) {
+        .container {
+          margin-top: 0;
+          border-radius: 0;
+        }
+        html{
+          background-image: none;
+        }
+      }
     </style>
   </head>
-  <body>
-    <h1>Guess the Phrase (Day <span id="day"></span>)</h1>
-    <p>Guess the saying by entering letters one at a time:</p>
-    <p id="saying"></p>
-    <label for="guess">Guess a letter:</label>
-    <input type="text" id="guess" maxlength="1" />
-    <button type="button" onclick="checkGuess()" id="guessButton">Guess</button>
-    <p><strong>-or-</strong></p>
-    <label for="solve">Would you like to solve the puzzle?</label>
-    <input type="text" id="solve" />
-    <button type="button" onclick="solvePuzzle()" id="solveButton">
-      Solve
-    </button>
-    <p id="result"></p>
-    <div class="text-center">
-      <button type="button" id="share" onclick="share()">Copy Score</button>
+  <body class="content">
+    <div class="container">
+      <h1>
+        Guess the Phrase <br /><small>(Day <span id="day"></span>)</small>
+      </h1>
+      <p>Guess the saying by entering letters one at a time:</p>
+      <p id="saying"></p>
+      <label for="guess">Guess a letter:</label>
+      <input class="input is-rounded" type="text" id="guess" maxlength="1" />
+      <button
+        class="button is-link"
+        type="button"
+        onclick="checkGuess()"
+        id="guessButton"
+      >
+        Guess
+      </button>
+      <p><strong>-or-</strong></p>
+      <label for="solve">Would you like to solve the puzzle?</label>
+      <input class="input is-rounded" type="text" id="solve" />
+      <button
+        class="button is-link"
+        type="button"
+        onclick="solvePuzzle()"
+        id="solveButton"
+      >
+        Solve
+      </button>
+      <p id="result"></p>
+      <div class="text-center">
+        <button
+          class="button is-link"
+          type="button"
+          id="share"
+          onclick="share()"
+        >
+          Copy Score
+        </button>
+      </div>
     </div>
 
     <script>
@@ -153,7 +219,9 @@
           //Show Share Button
           document.getElementById("share").style.display = "block";
           document.getElementById("result").innerHTML =
-            "Congratulations, you guessed day "+ diffDays+ "'s saying using " +
+            "Congratulations, you guessed day " +
+            diffDays +
+            "'s saying using " +
             guessedLetters.length +
             " guesses!";
         }
@@ -171,7 +239,9 @@
           //Show Share Button
           document.getElementById("share").style.display = "block";
           document.getElementById("result").innerHTML =
-          "Congratulations, you guessed day "+ diffDays+ "'s saying using " +
+            "Congratulations, you guessed day " +
+            diffDays +
+            "'s saying using " +
             guessedLetters.length +
             " guesses!";
           //fill in the saying at #saying
@@ -183,9 +253,12 @@
       }
       function share() {
         //Set guessedLetters.length to a string "You guessed in " + guessedLetters.length + " guesses!
-        var score = "Congratulations, you guessed day "+ diffDays+ "'s saying using " +
-            guessedLetters.length +
-            " guesses!";
+        var score =
+          "Congratulations, you guessed day " +
+          diffDays +
+          "'s saying using " +
+          guessedLetters.length +
+          " guesses!";
         //Copy to clipboard
         navigator.clipboard.writeText(score);
       }
