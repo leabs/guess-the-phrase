@@ -8,6 +8,28 @@
       content="width=device-width, initial-scale=1.0"
       user-scalable="no"
     />
+
+    <!--Social-->
+    <meta property="og:title" content="Guess the Phrase" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://guess-the-phrase.vercel.app/" />
+    <meta property="og:image" content="logo.png" />
+    <meta
+      name="description"
+      content="A daily game where you guess a phrase one letter at a time and try to beat your friend's score."
+    />
+    <meta name="keywords" content="daily, game, wordle, phrase" />
+    <link rel="icon" href="favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="favicon.png" />
+    <meta name="twitter:title" content="Guess the Phrase" />
+    <meta
+      name="twitter:description"
+      content="A daily game where you guess a phrase one letter at a time and try to beat your friend's score."
+    />
+    <meta name="twitter:image" content="logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!--CDN-->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.9.3/tsparticles.confetti.bundle.min.js"></script>
     <link
       rel="stylesheet"
@@ -31,7 +53,7 @@
 
       h1 {
         margin-top: 50px;
-        background: -webkit-linear-gradient(45deg,  #7286df, #09254f);
+        background: -webkit-linear-gradient(45deg, #7286df, #09254f);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -67,17 +89,17 @@
         background: #f5f5f5;
         box-shadow: 2px 3px 10px 10px rgba(0, 0, 0, 0.05);
         padding: 1rem;
-        border-radius: 10px;;
+        border-radius: 10px;
       }
-      small{
-        font-size:24px;
+      small {
+        font-size: 24px;
       }
-      @media(max-width: 500px) {
+      @media (max-width: 500px) {
         .container {
           margin-top: 0;
           border-radius: 0;
         }
-        html{
+        html {
           background-image: none;
         }
       }
@@ -258,7 +280,7 @@
           diffDays +
           "'s saying using " +
           guessedLetters.length +
-          " guesses! https://guess-the-phrase.vercel.app/" ;
+          " guesses! https://guess-the-phrase.vercel.app/";
         //Copy to clipboard
         navigator.clipboard.writeText(score);
       }
