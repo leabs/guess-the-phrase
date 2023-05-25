@@ -27,15 +27,14 @@
     />
     <meta
       name="description"
-      content="A daily game where you guess a phrase one letter at a time and try to beat your friend's score."
+      content="Guess the phrase one letter at a time. Come back each day to see if you can guess the daily phrase"
     />
     <meta name="keywords" content="daily, game, wordle, phrase" />
     <link rel="icon" href="favicon.png" />
-    <link rel="apple-touch-icon-precomposed" href="favicon.png" />
     <meta name="twitter:title" content="Guess the Phrase" />
     <meta
       name="twitter:description"
-      content="A daily game where you guess a phrase one letter at a time and try to beat your friend's score."
+      content="Guess the phrase one letter at a time. Come back each day to see if you can guess the daily phrase!"
     />
     <meta
       name="twitter:image"
@@ -52,10 +51,10 @@
     <title>Guess the Phrase</title>
     <style>
       html {
-        background-image: linear-gradient(
-          109.6deg,
-          rgba(48, 207, 208, 1) 11.2%,
-          #485fc7 92.5%
+        background-image: radial-gradient(
+          circle farthest-corner at 12.3% 19.3%,
+          rgba(85, 88, 218, 1) 0%,
+          rgba(95, 209, 249, 1) 100.2%
         );
         background-size: 100%;
         min-height: 100vh;
@@ -67,10 +66,12 @@
 
       h1 {
         margin-top: 50px;
-        background: -webkit-linear-gradient(45deg, #7286df, #09254f);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: #485fc7 !important;
       }
+      #saying {
+        font-size: 2rem;
+      }
+
       #guess,
       #solve {
         text-align: center;
@@ -92,11 +93,8 @@
         max-width: 500px;
         margin: 0 auto;
       }
-      button {
-        margin-top: 1rem;
-      }
       h1 {
-        margin-top: 2rem;
+        margin-top: 1rem;
       }
       .container {
         margin-top: 2rem;
@@ -121,32 +119,46 @@
   </head>
   <body class="content">
     <div class="container">
-      <h1>
-        Guess the Phrase <br /><small>(Day <span id="day"></span>)</small>
-      </h1>
-      <p>Guess the saying by entering letters one at a time:</p>
+      <h1>Guess the Phrase (Day <span id="day"></span>)</h1>
+      <p>Guess the saying by entering letters one at a time</p>
       <p id="saying"></p>
       <label for="guess">Guess a letter:</label>
-      <input class="input is-rounded" type="text" id="guess" maxlength="1" />
-      <button
-        class="button is-link"
-        type="button"
-        onclick="checkGuess()"
-        id="guessButton"
-      >
-        Guess
-      </button>
-      <p><strong>-or-</strong></p>
+      <div class="field has-addons" style="justify-content: center">
+        <div class="control">
+          <input class="input" type="text" id="guess" maxlength="1" />
+        </div>
+        <div class="control">
+          <button
+            class="button is-link"
+            type="button"
+            onclick="checkGuess()"
+            id="guessButton"
+          >
+            Guess
+          </button>
+        </div>
+      </div>
+      <span class="tag is-large is-white" style="margin-bottom: 1rem">
+        or
+      </span>
+      <br />
       <label for="solve">Would you like to solve the puzzle?</label>
-      <input class="input is-rounded" type="text" id="solve" />
-      <button
-        class="button is-link"
-        type="button"
-        onclick="solvePuzzle()"
-        id="solveButton"
-      >
-        Solve
-      </button>
+      <div class="field has-addons" style="justify-content: center">
+        <div class="control">
+          <input class="input" type="text" id="solve" />
+        </div>
+        <div class="control">
+          <button
+            class="button is-link"
+            type="button"
+            onclick="solvePuzzle()"
+            id="solveButton"
+          >
+            Solve
+          </button>
+        </div>
+      </div>
+
       <p id="result"></p>
       <div class="text-center">
         <button
@@ -199,6 +211,7 @@
           displaySaying += "_";
         }
       }
+
       document.getElementById("saying").innerHTML = displaySaying;
 
       //Set first day to 5/22/2023
