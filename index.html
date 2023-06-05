@@ -107,8 +107,8 @@
       small {
         font-size: 24px;
       }
-      #saying > span{
-        margin-right:4px;
+      #saying > span {
+        margin-right: 4px;
       }
       @media (max-width: 500px) {
         .container {
@@ -211,21 +211,16 @@
       var guessedLetters = ["'"];
       // Display the saying with underscores for unguessed letters
       var displaySaying = "";
-      //Show apostropies to user charAt(i) where apostropies are
-      
 
       for (var i = 0; i < saying.length; i++) {
         if (saying.charAt(i) == " ") {
           displaySaying += " ";
+        }
+        //Show apostropies to user charAt(i) where apostropies are
+        else if (saying.charAt(i) == "'") {
+          displaySaying += "'";
         } else {
           displaySaying += "<span>_</span>";
-        }
-      }
-
-      //for loop to display apostropies
-      for (var i = 0; i < saying.length; i++) {
-        if (saying.charAt(i) == "'") {
-          displaySaying = displaySaying.substring(0, i) + "'" + displaySaying.substring(i + 1);
         }
       }
 
