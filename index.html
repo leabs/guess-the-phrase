@@ -67,10 +67,10 @@
       h1 {
         margin-top: 50px;
         color: #485fc7 !important;
-        font-size: 1.75rem !important;
+        font-size: 1.35rem !important;
       }
       #saying {
-        font-size: 2rem;
+        font-size: 1.35rem;
       }
 
       #guess,
@@ -115,8 +115,8 @@
         html {
           background-image: none;
         }
-        .container{
-          min-height:100vh;
+        .container {
+          min-height: 100vh;
         }
       }
     </style>
@@ -204,15 +204,25 @@
         }
       });
       // Define the saying to guess
-      var saying = "LIVE AND LET DIE";
-      var guessedLetters = [];
+      var saying = "IT'S RAINING CATS AND DOGS";
+      var guessedLetters = ["'"];
       // Display the saying with underscores for unguessed letters
       var displaySaying = "";
+      //Show apostropies to user charAt(i) where apostropies are
+      
+
       for (var i = 0; i < saying.length; i++) {
         if (saying.charAt(i) == " ") {
           displaySaying += " ";
         } else {
           displaySaying += "_";
+        }
+      }
+
+      //for loop to display apostropies
+      for (var i = 0; i < saying.length; i++) {
+        if (saying.charAt(i) == "'") {
+          displaySaying = displaySaying.substring(0, i) + "'" + displaySaying.substring(i + 1);
         }
       }
 
