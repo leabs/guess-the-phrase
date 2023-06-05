@@ -107,6 +107,9 @@
       small {
         font-size: 24px;
       }
+      #saying > span{
+        margin-right:4px;
+      }
       @media (max-width: 500px) {
         .container {
           margin-top: 0;
@@ -215,7 +218,7 @@
         if (saying.charAt(i) == " ") {
           displaySaying += " ";
         } else {
-          displaySaying += "_";
+          displaySaying += "<span>_</span>";
         }
       }
 
@@ -260,7 +263,7 @@
             ) {
               newDisplaySaying += saying.charAt(i);
             } else {
-              newDisplaySaying += "_";
+              newDisplaySaying += "<span>_</span>";
             }
           }
           if (newDisplaySaying == displaySaying) {
