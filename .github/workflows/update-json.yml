@@ -2,7 +2,8 @@ name: Update JSON
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every night at midnight
+  # run now
+  - cron:  '*/1 * * * *'
 
 jobs:
   deploy:
