@@ -180,7 +180,22 @@
     </div>
 
     <script>
-      console.log(name);
+      // Fetch the data.json file
+      fetch('data.json')
+        .then(response => response.json()) // Parse the JSON response
+        .then(data => {
+          // Access the 'name' property from the JSON object
+          const projectName = data.name;
+  
+          // Update the 'projectName' element in the HTML
+          document.getElementById('projectName').textContent = projectName;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    </script>
+
+    <script>
       // Get the input field
       var input = document.getElementById("guess");
 
