@@ -185,8 +185,17 @@
     
 
     <script>
-      console.log('name'+ name)
-      console.log('contents'+ content)
+      //import data.json
+      let data = fetch ("data.json");
+      //console.log the second row from the phrases object
+      console.log(data);
+
+      
+
+      
+
+
+
       // Get the input field
       var input = document.getElementById("guess");
 
@@ -237,6 +246,14 @@
       var firstDay = new Date("5/22/2023");
       //Set current day to today'
       var today = new Date();
+
+      console.log(today)
+
+      //set today to format  "2023-06-13"
+      todayClean = today.toISOString().slice(0, 10);
+      console.log(todayClean)
+
+     
 
       //Calculate the difference in days between today and the first day
       var diffDays = Math.ceil(
