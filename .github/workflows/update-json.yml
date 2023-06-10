@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Select JSON
-        run: echo "{\"name\": \"New Object\"}" > data.json
+        run: echo "::set-output name=JSON::$(curl -s https://api.github.com/repos/leabs/guess-the-phrase/contents/data.json | jq -r '.content' | base64 -d)"
 
       - name: Checkout Repository
         uses: actions/checkout@v2
