@@ -182,25 +182,11 @@
       </div>
     </div>
 
-    <script>
-      // Fetch the data.json file
-      fetch('data.json')
-        .then(response => response.json()) // Parse the JSON response
-        .then(data => {
-          // Access the 'name' property from the JSON object
-          const projectName = data.name;
-  
-          // Update the 'projectName' element in the HTML
-          document.getElementById('projectName').textContent = projectName;
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    </script>
+    
 
     <script>
-      conson.log('name'+ name)
-      conson.log('contents'+ content)
+      console.log('name'+ name)
+      console.log('contents'+ content)
       // Get the input field
       var input = document.getElementById("guess");
 
