@@ -10,7 +10,9 @@ jobs:
 
     steps:
       - name: Select JSON
-        run: echo "::set-output name=JSON::$(curl -s https://api.github.com/repos/leabs/guess-the-phrase/contents/data.json | jq -r '.content' | base64 -d)"
+        # send content variable to index.html
+        run: echo "::set-output name=JSON::$(cat data.json)"
+
 
       - name: Checkout Repository
         uses: actions/checkout@v2
