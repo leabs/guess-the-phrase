@@ -126,8 +126,6 @@
   </head>
   <body class="content">
     <div class="container">
-      <img src="construction.jpg" alt="we'll be right back" />
-      <main style="display:none">
       <h1>Guess the Phrase (Day <span id="day"></span>)</h1>
       <p>Guess the phrase by entering letters one at a time</p>
       <p id="saying"></p>
@@ -165,7 +163,6 @@
           >
             Solve
           </button>
-        </main>
         </div>
       </div>
 
@@ -182,20 +179,7 @@
       </div>
     </div>
 
-    
-
     <script>
-      //import data.json
-      let data = fetch ("data.json");
-      //console.log the second row from the phrases object
-      console.log(data);
-
-      
-
-      
-
-
-
       // Get the input field
       var input = document.getElementById("guess");
 
@@ -223,7 +207,7 @@
         }
       });
       // Define the saying to guess
-      var saying = "LOCK HER UP";
+      var saying = "THE EARLY BIRD GETS THE WORM";
       var guessedLetters = [];
       // Display the saying with underscores for unguessed letters
       var displaySaying = "";
@@ -246,14 +230,6 @@
       var firstDay = new Date("5/22/2023");
       //Set current day to today'
       var today = new Date();
-
-      console.log(today)
-
-      //set today to format  "2023-06-13"
-      todayClean = today.toISOString().slice(0, 10);
-      console.log(todayClean)
-
-     
 
       //Calculate the difference in days between today and the first day
       var diffDays = Math.ceil(
