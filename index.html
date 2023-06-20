@@ -125,23 +125,9 @@
     </style>
   </head>
   <body class="content">
-    <div id="modal-js-example" class="modal is-large is-active">
-      <div class="modal-background"></div>
 
-      <div class="modal-content">
-        <div class="box">
-          <p>
-            Thanks for playing Guess the Phrase, but unfortunately we have to
-            say goodbye. From June 21st, Guess the Phrase will no longer be
-            available.
-          </p>
-        </div>
-      </div>
-
-      <button class="modal-close is-large" aria-label="close"></button>
-    </div>
     <div class="container">
-      <h1>Guess the Phrase (Day <span id="day"></span>)</h1>
+      <h1>Guess the Phrase (Day ∞)</h1>
       <p id="saying"></p>
       <label for="guess">Guess a letter:</label>
       <div class="field has-addons" style="justify-content: center">
@@ -194,59 +180,7 @@
     </div>
 
     <script>
-      //bulma modal show on page load
-      document.addEventListener("DOMContentLoaded", () => {
-        // Functions to open and close a modal
-        function openModal($el) {
-          $el.classList.add("is-active");
-        }
-
-        function closeModal($el) {
-          $el.classList.remove("is-active");
-        }
-
-        function closeAllModals() {
-          (document.querySelectorAll(".modal") || []).forEach(($modal) => {
-            closeModal($modal);
-          });
-        }
-
-        // Add a click event on buttons to open a specific modal
-        (document.querySelectorAll(".js-modal-trigger") || []).forEach(
-          ($trigger) => {
-            const modal = $trigger.dataset.target;
-            const $target = document.getElementById(modal);
-
-            $trigger.addEventListener("click", () => {
-              openModal($target);
-            });
-          }
-        );
-
-        // Add a click event on various child elements to close the parent modal
-        (
-          document.querySelectorAll(
-            ".modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button"
-          ) || []
-        ).forEach(($close) => {
-          const $target = $close.closest(".modal");
-
-          $close.addEventListener("click", () => {
-            closeModal($target);
-          });
-        });
-
-        // Add a keyboard event to close all modals
-        document.addEventListener("keydown", (event) => {
-          const e = event || window.event;
-
-          if (e.keyCode === 27) {
-            // Escape key
-            closeAllModals();
-          }
-        });
-      });
-
+      
       // Get the input field
       var input = document.getElementById("guess");
 
@@ -274,7 +208,7 @@
         }
       });
       // Define the saying to guess
-      var saying = "SO LONG AND THANKS FOR ALL THE FISH";
+      var saying = "EVERY END IS A NEW BEGINNING";
       var guessedLetters = [];
       // Display the saying with underscores for unguessed letters
       var displaySaying = "";
@@ -367,9 +301,7 @@
           //Show Share Button
           document.getElementById("share").style.display = "block";
           document.getElementById("result").innerHTML =
-            "Congratulations, you guessed day " +
-            diffDays +
-            "'s saying using " +
+            "Congratulations, you guessed day ∞'s saying using " +
             guessedLetters.length +
             " guesses!";
           //fill in the saying at #saying
@@ -382,9 +314,7 @@
       function share() {
         //Set guessedLetters.length to a string "You guessed in " + guessedLetters.length + " guesses!
         var score =
-          "Congratulations, you guessed day " +
-          diffDays +
-          "'s saying using " +
+          "Congratulations, you guessed day ∞'s saying using " +
           guessedLetters.length +
           " guesses! https://guess-the-phrase.vercel.app/";
         //Copy to clipboard
